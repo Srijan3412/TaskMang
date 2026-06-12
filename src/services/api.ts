@@ -1,10 +1,11 @@
 import axios from "axios";
 import { clearAuth, getToken } from "@/utils/token";
 
-// In production, set VITE_API_BASE_URL to your deployed backend URL
+// In production, set VITE_API_BASE_URL or VITE_API_URL to your deployed backend URL
 // e.g., https://your-backend.onrender.com/api/v1
 export const API_BASE_URL =
-  (typeof import.meta !== "undefined" && import.meta.env?.VITE_API_BASE_URL) ||
+  (typeof import.meta !== "undefined" && 
+    (import.meta.env?.VITE_API_BASE_URL || import.meta.env?.VITE_API_URL)) ||
   "http://localhost:4000/api/v1";
 
 const api = axios.create({
